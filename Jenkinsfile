@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('continuous download') {
+        stage('continuous downloading') {
             steps {
                git 'https://github.com/AneesRavidKhan/gamutkart.git' 
             }
@@ -14,7 +14,7 @@ pipeline {
         }
         stage('continuous deploy') {
             steps {
-                sh 'sshpass -p "saloni" scp target/gamutkart.war saloni@172.17.0.4:/opt/apache-tomcat-9.0.56/webapps'
+                sh 'sshpass -p "saloni" scp target/gamutkart.war saloni@172.17.0.3:/opt/apache-tomcat-9.0.56/webapps'
             }
         }
     }
